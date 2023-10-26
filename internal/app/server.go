@@ -2,6 +2,7 @@ package app
 
 import (
 	"database/sql"
+	"effectivemobile-rest-service/internal/handlers"
 	"effectivemobile-rest-service/internal/repo"
 	"log"
 )
@@ -13,10 +14,10 @@ func Run() {
 	}
 	repo := repo.RepositoryInstance(db)
 
-	controller := controllers.ControllersInstance(repo)
+	controller := handlers.ControllersInstance(repo)
 	Routes(controller)
 	defer db.Close()
 }
 
-func Routes(c controller) {
+func Routes(c *handlers.Controllers) {
 }
