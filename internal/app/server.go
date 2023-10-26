@@ -5,6 +5,7 @@ import (
 	"effectivemobile-rest-service/internal/handlers"
 	"effectivemobile-rest-service/internal/repo"
 	"log"
+	"net/http"
 )
 
 func Run() {
@@ -20,4 +21,6 @@ func Run() {
 }
 
 func Routes(c *handlers.Controllers) {
+	mux := http.NewServeMux()
+	mux.HandleFunc("/people", c.People)
 }
