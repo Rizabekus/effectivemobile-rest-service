@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"effectivemobile-rest-service/internal/handlers"
 	"effectivemobile-rest-service/internal/repo"
+	"fmt"
 	"log"
 	"net/http"
 )
@@ -23,4 +24,8 @@ func Run() {
 func Routes(c *handlers.Controllers) {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/people", c.People)
+	fmt.Println("http://localhost:8000")
+
+	err := http.ListenAndServe(":8000", mux)
+	log.Fatal(err)
 }
