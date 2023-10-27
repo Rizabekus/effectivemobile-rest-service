@@ -16,6 +16,12 @@ func ControllersInstance(Repository *repo.Repository) *Controllers {
 func (c *Controllers) People(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case http.MethodGet:
+		switch len(r.URL.Query()) {
+		case 0:
+		case 1:
+		default:
+
+		}
 	case http.MethodPost:
 	case http.MethodPut:
 	case http.MethodDelete:
